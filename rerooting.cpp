@@ -11,10 +11,9 @@ using namespace std;
 const int m = 1e5 + 7 ;
 vector<int> adj[m] ;
 
-
 int dfs(int curr , int par , int &sum)
-    {         int cnt = 1 ;
-
+    {   
+        int cnt = 1 ;
         for(auto it : adj[curr])
           {
             if(it != par)
@@ -26,20 +25,17 @@ int dfs(int curr , int par , int &sum)
         return cnt ;
     }
 
-
-
 //brute force approach to find the retooting of the tree...
 void solve()
      {
          int n ;
          cin>>n;
-
+         
         // creating the adjency matrix here!!!
          for(int i= 0 ; i < n-1 ; i++)
            {
              int u , v ;
              cin>>u>>v;
-
              adj[u].push_back(v);
              adj[v].push_back(u) ;
            }
@@ -50,7 +46,6 @@ void solve()
            {
               int sum = 0 ;
               dfs(i , 0 , sum);
-
               if(maxi < sum)
                 {
                    node = i ;
